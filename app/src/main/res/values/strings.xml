@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Cream</string>
+    <string name="signin_with_phone">SignIn with Phone#</string>
+    <string name="google_signin">Google SignIn</string>
+</resources>
