@@ -5,6 +5,7 @@ package com.example.cream.ui.home
 //import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import android.Manifest
 import android.content.res.Resources
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
@@ -124,7 +125,8 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                     if(error!=null)
                         Snackbar.make(mapFragment.requireView(),error.message,Snackbar.LENGTH_LONG).show()
                     else
-                        Snackbar.make(mapFragment.requireView(),"Online",Snackbar.LENGTH_SHORT).show()
+                        Snackbar.make(mapFragment.requireView(),"Online",Snackbar.LENGTH_SHORT).setBackgroundTint(
+                            Color.parseColor("#00FF00")).show()
 
                 }
             }
