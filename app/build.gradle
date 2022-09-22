@@ -88,7 +88,15 @@ dependencies {
     //location
     implementation 'com.google.android.gms:play-services-location:20.0.0'
     implementation 'com.firebase:geofire-android:3.2.0'
-    //implementation 'com.firebase:geofire-android-common:'
+
+    //circle image
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //storage
+    implementation 'com.google.firebase:firebase-storage'
+
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
 
 
