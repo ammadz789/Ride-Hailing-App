@@ -19,6 +19,8 @@
     <string name="menu_exit">Sign Out</string>
     <string name="menu_slideshow">Sign Out</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="decline">Decline</string>
+    <string name="permision_require">Permission reuired!!!</string>
 
 
 </resources>

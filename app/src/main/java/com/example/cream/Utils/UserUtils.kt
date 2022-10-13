@@ -32,7 +32,7 @@ object UserUtils {
         tokenModel.token = token
         FirebaseDatabase.getInstance().getReference(Common.TOKEN_REFERENCE)
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
-            .setValue(token)
+            .setValue(tokenModel)
             .addOnFailureListener { e-> Toast.makeText(context,e.message,Toast.LENGTH_LONG).show() }
             .addOnSuccessListener {  }
 

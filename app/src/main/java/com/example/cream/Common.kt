@@ -10,6 +10,7 @@ import android.graphics.Color
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.example.cream.Model.DriverInfoModel
+import com.google.android.gms.maps.model.LatLng
 
 object Common {
     fun buildWelcomeMessage(): String {
@@ -56,10 +57,50 @@ object Common {
 
     }
 
+    fun decodePoly(encoded: String): ArrayList<LatLng?> {
+        val poly = ArrayList<LatLng?>()
+        var index = 0
+        val len = encoded.length
+        var lat = 0
+        var lng = 0
+        while (index < len) {
+            var b: Int
+            var shift = 0
+            var result = 0
+            do {
+                b = encoded[index++].code - 63
+                result = result or (b and 0x1f shl shift)
+                shift += 5
+            } while (b >= 0x20)
+            val dlat = if (result and 1 != 0) (result shr 1).inv() else result shr 1
+            lat += dlat
+            shift = 0
+            result = 0
+            do {
+                b = encoded[index++].code - 63
+                result = result or (b and 0x1f shl shift)
+                shift += 5
+            } while (b >= 0x20)
+            val dlng = if (result and 1 != 0) (result shr 1).inv() else result shr 1
+            lng += dlng
+            val p = LatLng(
+                lat.toDouble() / 1E5,
+                lng.toDouble() / 1E5
+            )
+            poly.add(p)
+        }
+        return poly
+    }
+
+
     val NOTI_BODY: String = "body"
     val NOTI_TITLE: String = "N Title"
     val TOKEN_REFERENCE: String = "Token"
     val DRIVERS_LOCATION_REFERENCE: String = "DriversLocation"
     var currentUser: DriverInfoModel?=null
     val DRIVER_INFO_REFERENCE:String = "DINFO"
+
+    val RIDER_KEY: String = "RiderKey"
+    val PICKUP_LOCATION: String = "PickupLocation"
+    val REQUEST_DRIVER_TITLE: String = "RequestDriver"
 }

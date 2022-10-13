@@ -97,6 +97,7 @@ class DriverHomeActivity : AppCompatActivity() {
             }
             true
         }
+
         val headerView = navView.getHeaderView(0)
         val text_name = headerView.findViewById<View>(R.id.text_name) as TextView
         val text_phone = headerView.findViewById<View>(R.id.text_phone) as TextView
